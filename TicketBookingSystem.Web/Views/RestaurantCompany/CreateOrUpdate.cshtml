@@ -1,0 +1,40 @@
+﻿@model RestaurantCompanyModel
+@{
+    ViewData["Title"] = "Create Restaurant";
+}
+
+@{
+    var isEditMode = (bool)ViewData["isEditMode"];
+}
+<center><h4> @(!isEditMode?"Create":"Update") Restaurant</h4></center>
+<div class="row">
+    <div class="col-4 offset-4">
+        <form method="post">
+            <div class="form-outline mb-4">
+                <label class="form-label" asp-for="RestaurantCompanyName">Restaurant Company Name:</label>
+                <input type="text" asp-for="RestaurantCompanyName" id="RestaurantCompanyName" class="form-control" />
+                <span asp-validation-for="RestaurantCompanyName" class="text-danger"></span>
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" asp-for="Description">Description:</label>
+                <textarea asp-for="Description" class="form-control"> </textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" asp-for="WebSite">WebSite:</label>
+                <input type="text" asp-for="WebSite" class="form-control" />
+                <span asp-validation-for="WebSite" class="text-danger"></span>
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" asp-for="Phone">Phone:</label>
+                <input type="text" asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block mb-4">Save</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@model TableBookingSystem.Web.Models.LoginModel 
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="offset-4 col-4">
+        <center> <h4>Login</h4></center>
+        <form action="/Login" method="post">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" asp-for="EmailId">Email address:</label>
+                <input type="email" asp-for="EmailId" id="Email" class="form-control" />
+                <span asp-validation-for="EmailId" class="text-danger"></span>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" asp-for="Password">Password:</label>
+                <input type="password" asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+           
+            <button type="submit" class="btn btn-primary btn-block mb-4">Login</button>
+        </form>
+    </div>
+</div>
+

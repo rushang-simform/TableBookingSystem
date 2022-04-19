@@ -1,0 +1,68 @@
+﻿@model IEnumerable<TableBookingSystem.Application.DTOs.RestaurantCompany.RestaurantCompanyDto>
+@{
+    ViewData["Title"] = "Restaurant Companies";
+}
+
+
+<center> <h3>Resturant Companies</h3></center>
+
+<div class="clearfix">
+
+    <a asp-action="Create" asp-controller="RestaurantCompany" class="btn btn-primary float-right">Add Company</a>
+</div>
+<br />
+<br />
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                Restaurant CompanyName
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Website
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.RestaurantCompanyName
+                    </td>
+                    <td>
+                        @item.Description
+                    </td>
+                    <td>
+                        @item.Website
+                    </td>
+                    <td>
+                        @item.Phone
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Update", "RestaurantCompany", new { RestaurantCompanyId = item.RestaurantCompanyId }) |
+                        @Html.ActionLink("Delete", "Delete", "RestaurantCompany", new { RestaurantCompanyId = item.RestaurantCompanyId })
+                    </td>
+                </tr>
+            }
+        }
+
+
+    </tbody>
+</table>
+
+@if (Model?.Count() == 0)
+{
+    <center><h4>No resturant companies found!</h4></center>
+}
